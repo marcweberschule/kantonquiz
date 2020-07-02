@@ -9,11 +9,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 
 public class game extends AppCompatActivity {
     private ImageView img;
+    Animation animate;
     private Button btnOne;
     private Button btnTwo;
     private Button btnThree;
@@ -51,6 +55,9 @@ public class game extends AppCompatActivity {
             numberOne = randomNumber();
         }
 
+        animate = AnimationUtils.loadAnimation(this,R.anim.animations);
+        btnOne.startAnimation(animate);
+
         btnTwo.setText(kantone[numberOne]);
         btnThree.setText(kantone[numberTwo]);
         btnFour.setText(kantone[numberThree]);
@@ -83,4 +90,5 @@ public class game extends AppCompatActivity {
         animate.setRepeatCount(ValueAnimator.REVERSE);
         animate.start();
     }*/
+
 }
