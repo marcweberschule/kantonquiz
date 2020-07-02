@@ -40,6 +40,9 @@ public class game extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO
+                colourAnimation(btnOne);
+                colourAnimation(btnTwo);
+                colourAnimation(btnThree);
                 colourAnimation(btnFour);
             }
         };
