@@ -1,7 +1,9 @@
 package com.example.kantonquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        NotificationCompat.Builder notification = new NotificationCompat.Builder(this);
+        notification.setContentTitle("Zeit zum Üben");
+        notification.setContentText("Du hast seit 6 Stunden kein Kanton Quiz gespielt.");
         play=findViewById(R.id.play);
         play.setOnClickListener(new View.OnClickListener(){
             @Override

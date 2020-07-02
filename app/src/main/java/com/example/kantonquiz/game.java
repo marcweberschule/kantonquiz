@@ -36,18 +36,19 @@ public class game extends AppCompatActivity {
         this.btnTwo = findViewById(R.id.falseOne);
         this.btnThree = findViewById(R.id.falseTwo);
         this.btnFour = findViewById(R.id.falseThree);
+
         int numberOne = randomNumber();
         int numberTwo = randomNumber();
         int numberThree = randomNumber();
 
         while (numberOne == numberTwo){
-            numberTwo= randomNumber();
+            numberTwo = randomNumber();
         }
         while (numberTwo == numberThree){
-            numberThree= randomNumber();
+            numberThree = randomNumber();
         }
         while (numberOne == numberThree){
-            numberOne= randomNumber();
+            numberOne = randomNumber();
         }
 
         btnTwo.setText(kantone[numberOne]);
