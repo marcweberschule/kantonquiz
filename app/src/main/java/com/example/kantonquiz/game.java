@@ -19,6 +19,7 @@ public class game extends AppCompatActivity {
     private Button btnThree;
     private Button btnFour;
     private Button back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +41,9 @@ public class game extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO
-                colourAnimation(btnOne);
-                colourAnimation(btnTwo);
+                /*colourAnimation(btnTwo);
                 colourAnimation(btnThree);
-                colourAnimation(btnFour);
+                colourAnimation(btnFour);*/
             }
         };
 
@@ -52,14 +52,14 @@ public class game extends AppCompatActivity {
         btnFour.setOnClickListener(btnListener);
 
     }
-    private void colourAnimation(View v){
+    /*private void colourAnimation(View v){
         int colourStart= v.getSolidColor();
         int colourEnd = 0x228B22;
 
         ValueAnimator animate = ObjectAnimator.ofInt(v, "backgroundColor", colourStart,colourEnd);
-        animate.setDuration(500);
+        animate.setDuration(2000);
         animate.setEvaluator(new ArgbEvaluator());
         animate.setRepeatCount(ValueAnimator.REVERSE);
         animate.start();
-    }
+    }*/
 }
