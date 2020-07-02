@@ -42,7 +42,7 @@ public class game extends AppCompatActivity {
                 //TODO
                 colourAnimation(btnFour);
             }
-        }
+        };
 
         btnTwo.setOnClickListener(btnListener);
         btnThree.setOnClickListener(btnListener);
