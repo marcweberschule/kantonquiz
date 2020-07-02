@@ -36,9 +36,9 @@ public class game extends AppCompatActivity {
         this.btnTwo = findViewById(R.id.falseOne);
         this.btnThree = findViewById(R.id.falseTwo);
         this.btnFour = findViewById(R.id.falseThree);
-        btnTwo.setText(kantone[1]);
-        btnThree.setText(kantone[2]);
-        btnFour.setText(kantone[3]);
+        btnTwo.setText(kantone[(int) ((Math.random() * ((25 - 0) + 1)) + 0)]);
+        btnThree.setText(kantone[(int) ((Math.random() * ((25 - 0) + 1)) + 0)]);
+        btnFour.setText(kantone[(int) ((Math.random() * ((25 - 0) + 1)) + 0)]);
         View.OnClickListener btnListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
