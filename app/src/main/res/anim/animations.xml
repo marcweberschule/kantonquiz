@@ -3,8 +3,8 @@
     <translate
         android:fromXDelta="0%"
         android:toXDelta="50%"
+        android:
         android:duration="550"
-        android:repeatMode="reverse"
         android:repeatCount="1"
         />
 </set>
