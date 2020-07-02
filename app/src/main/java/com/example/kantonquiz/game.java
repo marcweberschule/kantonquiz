@@ -36,9 +36,23 @@ public class game extends AppCompatActivity {
         this.btnTwo = findViewById(R.id.falseOne);
         this.btnThree = findViewById(R.id.falseTwo);
         this.btnFour = findViewById(R.id.falseThree);
-        btnTwo.setText(kantone[(int) ((Math.random() * ((25 - 0) + 1)) + 0)]);
-        btnThree.setText(kantone[(int) ((Math.random() * ((25 - 0) + 1)) + 0)]);
-        btnFour.setText(kantone[(int) ((Math.random() * ((25 - 0) + 1)) + 0)]);
+        int numberOne = randomNumber();
+        int numberTwo = randomNumber();
+        int numberThree = randomNumber();
+
+        while (numberOne == numberOne){
+            numberTwo= randomNumber();
+        }
+        while (numberTwo == numberThree){
+            numberThree= randomNumber();
+        }
+        while (numberOne == numberThree){
+            numberOne= randomNumber();
+        }
+
+        btnTwo.setText(kantone[numberOne]);
+        btnThree.setText(kantone[numberTwo]);
+        btnFour.setText(kantone[numberThree]);
         View.OnClickListener btnListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,6 +67,10 @@ public class game extends AppCompatActivity {
         btnThree.setOnClickListener(btnListener);
         btnFour.setOnClickListener(btnListener);
 
+    }
+    private static int randomNumber(){
+        int zahl = (int) ((Math.random()*((25-0)+1))+0);
+        return zahl;
     }
     /*private void colourAnimation(View v){
         int colourStart= v.getSolidColor();
