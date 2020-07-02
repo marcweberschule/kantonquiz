@@ -36,7 +36,9 @@ public class game extends AppCompatActivity {
         this.btnTwo = findViewById(R.id.falseOne);
         this.btnThree = findViewById(R.id.falseTwo);
         this.btnFour = findViewById(R.id.falseThree);
-
+        btnTwo.setText(kantone[1]);
+        btnThree.setText(kantone[2]);
+        btnFour.setText(kantone[3]);
         View.OnClickListener btnListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
