@@ -40,7 +40,7 @@ public class game extends AppCompatActivity {
         int numberTwo = randomNumber();
         int numberThree = randomNumber();
 
-        while (numberOne == numberOne){
+        while (numberOne == numberTwo){
             numberTwo= randomNumber();
         }
         while (numberTwo == numberThree){
