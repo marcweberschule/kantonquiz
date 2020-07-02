@@ -28,7 +28,7 @@ public class game extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                finish();//test
             }
         });
         this.img = findViewById(R.id.img);
