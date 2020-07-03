@@ -24,7 +24,10 @@ public class game extends AppCompatActivity {
     private Button btnThree;
     private Button btnFour;
     private Button back;
-    private int i = 0;
+    //public static final String nrOneText= "com.example.kantonquiz.nrOneText";
+    //public static final String nrTwoText= "com.example.kantonquiz.nrTwoText";
+    private int questionCounter = 0;
+    private int corAnswer=0;
     private String[] kantone   = {"Zürich","Bern","Luzern","Uri","Schwyz","Nidwalden","Obwalden","Glarus","Zug","Freiburg","Solothurn","Basel-Stadt","Basel-Land","Schaffhausen","AppenzellAusserrhoden","Appenzell Innerhoden","St. Gallen","Graubünden","Aargau","Thurgau","Tessin","Waadt","Wallis","Neuenburg","Genf","Jura"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,16 +49,15 @@ public class game extends AppCompatActivity {
         int numberOne = randomNumber();
         int numberTwo = randomNumber();
         int numberThree = randomNumber();
-        while (i == numberOne){
+        while (questionCounter == numberOne){
             numberOne = randomNumber();
         }
-        while (i == numberTwo){
+        while (questionCounter == numberTwo){
             numberTwo = randomNumber();
         }
-        while (i == numberThree){
+        while (questionCounter == numberThree){
             numberThree = randomNumber();
         }
-
         while (numberOne == numberTwo){
             numberTwo = randomNumber();
         }
@@ -68,7 +70,7 @@ public class game extends AppCompatActivity {
 
         /*animate = AnimationUtils.loadAnimation(this,R.anim.animations);
         btnOne.startAnimation(animate);*/
-
+        btnOne.setText(kantone[questionCounter]);
         btnTwo.setText(kantone[numberOne]);
         btnThree.setText(kantone[numberTwo]);
         btnFour.setText(kantone[numberThree]);
@@ -76,6 +78,8 @@ public class game extends AppCompatActivity {
         View.OnClickListener btnListenerCor = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                questionCounter++;
+                corAnswer++;
                 final ValueAnimator animator = new ValueAnimator();
                 animator.setDuration(300);
                 animator.setEvaluator(new ArgbEvaluator());
@@ -83,7 +87,8 @@ public class game extends AppCompatActivity {
                 animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
                     public void onAnimationUpdate(ValueAnimator animator){
                         btnOne.setBackgroundColor((int)animator.getAnimatedValue());
-                    i++;
+
+                    nextQuestion();
                     }
                 });
                 animator.start();
@@ -91,7 +96,10 @@ public class game extends AppCompatActivity {
         };
         View.OnClickListener btnListener = new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
+                questionCounter++;
+                nextQuestion();
                 final ValueAnimator animator = new ValueAnimator();
                 animator.setDuration(300);
                 animator.setEvaluator(new ArgbEvaluator());
@@ -99,6 +107,7 @@ public class game extends AppCompatActivity {
                 animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
                     public void onAnimationUpdate(ValueAnimator animator){
                         btnTwo.setBackgroundColor((int)animator.getAnimatedValue());
+
                     }
                 });
                 animator.start();
@@ -107,6 +116,8 @@ public class game extends AppCompatActivity {
         View.OnClickListener btnListenerTwo = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                questionCounter++;
+                nextQuestion();
                 final ValueAnimator animator = new ValueAnimator();
                 animator.setDuration(300);
                 animator.setEvaluator(new ArgbEvaluator());
@@ -114,7 +125,9 @@ public class game extends AppCompatActivity {
                 animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
                     public void onAnimationUpdate(ValueAnimator animator){
                         btnThree.setBackgroundColor((int)animator.getAnimatedValue());
+
                     }
+
                 });
                 animator.start();
             }
@@ -122,6 +135,8 @@ public class game extends AppCompatActivity {
         View.OnClickListener btnListenerThree = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                questionCounter++;
+                nextQuestion();
                 final ValueAnimator valueAnimator = new ValueAnimator();
                 final ValueAnimator animator = new ValueAnimator();
                 animator.setDuration(300);
@@ -130,6 +145,7 @@ public class game extends AppCompatActivity {
                 animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
                     public void onAnimationUpdate(ValueAnimator animator){
                         btnFour.setBackgroundColor((int)animator.getAnimatedValue());
+
                     }
                 });
                 animator.start();
@@ -140,6 +156,12 @@ public class game extends AppCompatActivity {
         btnThree.setOnClickListener(btnListenerTwo);
         btnFour.setOnClickListener(btnListenerThree);
 
+    }
+    public void nextQuestion(){
+        Intent intent = new Intent(this,gameP2.class);
+        intent.putExtra("FIRST_INT", questionCounter);
+        intent.putExtra("SECOND_INT",corAnswer);
+        startActivity(intent);
     }
     private static int randomNumber(){
         int zahl = (int) ((Math.random()*((25-0)+1))+0);
