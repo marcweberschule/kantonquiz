@@ -45,11 +45,11 @@ public class game extends AppCompatActivity {
             }
         });
 
-        if(questionCounter >24){
+        if(questionCounter > 26){
         Intent intent1 = new Intent(this , Score.class);
-            intent.putExtra("FIRST_INT", questionCounter);
-            intent.putExtra("SECOND_INT",corAnswer);
-            startActivity(intent);
+            intent1.putExtra("FIRST_INT", questionCounter);
+            intent1.putExtra("SECOND_INT",corAnswer);
+            startActivity(intent1);
             finish();
         }
 
@@ -114,21 +114,24 @@ public class game extends AppCompatActivity {
                 b.setImageResource(R.drawable.aargau);
                 break;
             case 20:
-                b.setImageResource(R.drawable.tessin);
+                b.setImageResource(R.drawable.thurgau);
                 break;
             case 21:
-                b.setImageResource(R.drawable.waadt);
+                b.setImageResource(R.drawable.tessin);
                 break;
             case 22:
-                b.setImageResource(R.drawable.wallis);
+                b.setImageResource(R.drawable.waadt);
                 break;
             case 23:
-                b.setImageResource(R.drawable.neuenburg);
+                b.setImageResource(R.drawable.wallis);
                 break;
             case 24:
-                b.setImageResource(R.drawable.genf);
+                b.setImageResource(R.drawable.neuenburg);
                 break;
             case 25:
+                b.setImageResource(R.drawable.genf);
+                break;
+            case 26:
                 b.setImageResource(R.drawable.jura);
                 break;
         }
