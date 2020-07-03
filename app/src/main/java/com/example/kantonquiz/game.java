@@ -25,8 +25,6 @@ public class game extends AppCompatActivity {
     private Button btnThree;
     private Button btnFour;
     private Button back;
-    //public static final String nrOneText= "com.example.kantonquiz.nrOneText";
-    //public static final String nrTwoText= "com.example.kantonquiz.nrTwoText";
     private int questionCounter = 0;
     private int corAnswer=0;
     private String[] kantone   = {"Zürich","Bern","Luzern","Uri","Schwyz","Nidwalden","Obwalden","Glarus","Zug","Freiburg","Solothurn","Basel-Stadt","Basel-Land","Schaffhausen","AppenzellAusserrhoden","Appenzell Innerhoden","St. Gallen","Graubünden","Aargau","Thurgau","Tessin","Waadt","Wallis","Neuenburg","Genf","Jura"};
@@ -47,9 +45,12 @@ public class game extends AppCompatActivity {
             }
         });
 
-        if(questionCounter >=25){
-        Intent intent1 = Intent();
-
+        if(questionCounter >24){
+        Intent intent1 = new Intent(this , Score.class);
+            intent.putExtra("FIRST_INT", questionCounter);
+            intent.putExtra("SECOND_INT",corAnswer);
+            startActivity(intent);
+            finish();
         }
 
         ImageView b = findViewById(R.id.img);
