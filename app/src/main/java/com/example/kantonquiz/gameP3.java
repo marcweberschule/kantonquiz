@@ -3,22 +3,14 @@ package com.example.kantonquiz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ArgbEvaluator;
-import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.renderscript.Sampler;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
-import android.widget.ImageView;
 
-public class game extends AppCompatActivity {
-    private ImageView img;
-    Animation animate;
+public class gameP3 extends AppCompatActivity {
     private Button btnOne;
     private Button btnTwo;
     private Button btnThree;
@@ -29,10 +21,16 @@ public class game extends AppCompatActivity {
     private int questionCounter = 0;
     private int corAnswer=0;
     private String[] kantone   = {"Zürich","Bern","Luzern","Uri","Schwyz","Nidwalden","Obwalden","Glarus","Zug","Freiburg","Solothurn","Basel-Stadt","Basel-Land","Schaffhausen","AppenzellAusserrhoden","Appenzell Innerhoden","St. Gallen","Graubünden","Aargau","Thurgau","Tessin","Waadt","Wallis","Neuenburg","Genf","Jura"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        setContentView(R.layout.activity_game_p3);
+
+        Intent intent= getIntent();
+        questionCounter = intent.getIntExtra("FIRST_INT", 0);
+        corAnswer = intent.getIntExtra("SECOND_INT", 0);
+
         this.back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +38,14 @@ public class game extends AppCompatActivity {
                 finish();
             }
         });
-        this.img = findViewById(R.id.img);
+        /*this.button = findViewById(R.id.testBtn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println(questionCounter);
+                System.out.println(corAnswer);
+            }
+        });*/
         this.btnOne = findViewById(R.id.correct);
         this.btnTwo = findViewById(R.id.falseOne);
         this.btnThree = findViewById(R.id.falseTwo);
@@ -87,7 +92,7 @@ public class game extends AppCompatActivity {
                     public void onAnimationUpdate(ValueAnimator animator){
                         btnOne.setBackgroundColor((int)animator.getAnimatedValue());
 
-                    nextQuestion();
+                        nextQuestion();
                     }
                 });
                 animator.start();
@@ -157,7 +162,7 @@ public class game extends AppCompatActivity {
 
     }
     public void nextQuestion(){
-        Intent intent = new Intent(this,gameP2.class);
+        Intent intent = new Intent(this,gameP4.class);
         intent.putExtra("FIRST_INT", questionCounter);
         intent.putExtra("SECOND_INT",corAnswer);
         startActivity(intent);
@@ -166,5 +171,5 @@ public class game extends AppCompatActivity {
         int zahl = (int) ((Math.random()*((25-0)+1))+0);
         return zahl;
     }
-
 }
+
