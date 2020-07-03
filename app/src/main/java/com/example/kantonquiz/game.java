@@ -27,7 +27,7 @@ public class game extends AppCompatActivity {
     private Button back;
     private int questionCounter = 0;
     private int corAnswer=0;
-    private String[] kantone   = {"Zürich","Bern","Luzern","Uri","Schwyz","Nidwalden","Obwalden","Glarus","Zug","Freiburg","Solothurn","Basel-Stadt","Basel-Land","Schaffhausen","AppenzellAusserrhoden","Appenzell Innerhoden","St. Gallen","Graubünden","Aargau","Thurgau","Tessin","Waadt","Wallis","Neuenburg","Genf","Jura"};
+    private String[] kantone   = {"Zürich","Bern","Luzern","Uri","Schwyz","Nidwalden","Obwalden","Glarus","Zug","Freiburg","Solothurn","Basel-Stadt","Basel-Land","Schaffhausen","AppenzellAusserrhoden","Appenzell Innerhoden","St. Gallen","Graubünden","Aargau","Thurgau","Tessin","Waadt","Wallis","Neuenburg","Genf","Jura",""};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,7 @@ public class game extends AppCompatActivity {
             }
         });
 
-        if(questionCounter > 26){
+        if(questionCounter > 25){
         Intent intent1 = new Intent(this , Score.class);
             intent1.putExtra("FIRST_INT", questionCounter);
             intent1.putExtra("SECOND_INT",corAnswer);
@@ -212,6 +212,9 @@ public class game extends AppCompatActivity {
             public void onClick(View view) {
                 questionCounter++;
                 nextQuestion();
+                if (questionCounter >= 26){
+                    questionCounter = 25;
+                }
                 final ValueAnimator animator = new ValueAnimator();
                 animator.setDuration(300);
                 animator.setEvaluator(new ArgbEvaluator());

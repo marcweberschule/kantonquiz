@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class Score extends AppCompatActivity {
-    private int questionCounter = 0;
-    private int corAnswer=0;
+    private int questionCounter;
+    private int corAnswer;
     TextView question;
     TextView answer;
     @Override
@@ -21,8 +21,8 @@ public class Score extends AppCompatActivity {
         corAnswer = intent.getIntExtra("SECOND_INT", 0);
 
         this.question = findViewById(R.id.question);
-        question.setText(questionCounter);
+        question.setText(String.valueOf(questionCounter));
         this.answer = findViewById(R.id.anwser);
-        answer.setText(corAnswer);
+        answer.setText(String.valueOf(corAnswer));
     }
 }
