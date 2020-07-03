@@ -47,6 +47,11 @@ public class game extends AppCompatActivity {
             }
         });
 
+        if(questionCounter >=25){
+        Intent intent1 = Intent();
+
+        }
+
         ImageView b = findViewById(R.id.img);
         switch(questionCounter + 1)
         {
@@ -80,7 +85,51 @@ public class game extends AppCompatActivity {
             case 10:
                 b.setImageResource(R.drawable.freiburg);
                 break;
-
+            case 11:
+                b.setImageResource(R.drawable.solothurn);
+                break;
+            case 12:
+                b.setImageResource(R.drawable.baselstadt);
+                break;
+            case 13:
+                b.setImageResource(R.drawable.baselland);
+                break;
+            case 14:
+                b.setImageResource(R.drawable.schaffhausen);
+                break;
+            case 15:
+                b.setImageResource(R.drawable.appenzellausserrhoden);
+                break;
+            case 16:
+                b.setImageResource(R.drawable.appenzellinnerrhoden);
+                break;
+            case 17:
+                b.setImageResource(R.drawable.stgallen);
+                break;
+            case 18:
+                b.setImageResource(R.drawable.graubunden);
+                break;
+            case 19:
+                b.setImageResource(R.drawable.aargau);
+                break;
+            case 20:
+                b.setImageResource(R.drawable.tessin);
+                break;
+            case 21:
+                b.setImageResource(R.drawable.waadt);
+                break;
+            case 22:
+                b.setImageResource(R.drawable.wallis);
+                break;
+            case 23:
+                b.setImageResource(R.drawable.neuenburg);
+                break;
+            case 24:
+                b.setImageResource(R.drawable.genf);
+                break;
+            case 25:
+                b.setImageResource(R.drawable.jura);
+                break;
         }
         this.img = findViewById(R.id.img);
         this.btnOne = findViewById(R.id.correct);
@@ -196,6 +245,8 @@ public class game extends AppCompatActivity {
         btnTwo.setOnClickListener(btnListener);
         btnThree.setOnClickListener(btnListenerTwo);
         btnFour.setOnClickListener(btnListenerThree);
+
+
 
     }
     public void nextQuestion(){
