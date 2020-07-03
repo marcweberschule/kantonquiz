@@ -2,8 +2,6 @@ package com.example.kantonquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
-
-import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
