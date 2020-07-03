@@ -183,6 +183,7 @@ public class game extends AppCompatActivity {
                         btnOne.setBackgroundColor((int)animator.getAnimatedValue());
 
                     nextQuestion();
+                        finish();
                     }
                 });
                 animator.start();
@@ -193,7 +194,6 @@ public class game extends AppCompatActivity {
 
             public void onClick(View view) {
                 questionCounter++;
-                nextQuestion();
                 final ValueAnimator animator = new ValueAnimator();
                 animator.setDuration(300);
                 animator.setEvaluator(new ArgbEvaluator());
@@ -205,6 +205,8 @@ public class game extends AppCompatActivity {
                     }
                 });
                 animator.start();
+                nextQuestion();
+                finish();
             }
         };
         View.OnClickListener btnListenerTwo = new View.OnClickListener() {
@@ -212,6 +214,7 @@ public class game extends AppCompatActivity {
             public void onClick(View view) {
                 questionCounter++;
                 nextQuestion();
+                finish();
                 if (questionCounter >= 26){
                     questionCounter = 25;
                 }
@@ -234,6 +237,7 @@ public class game extends AppCompatActivity {
             public void onClick(View view) {
                 questionCounter++;
                 nextQuestion();
+                finish();
                 final ValueAnimator valueAnimator = new ValueAnimator();
                 final ValueAnimator animator = new ValueAnimator();
                 animator.setDuration(300);
