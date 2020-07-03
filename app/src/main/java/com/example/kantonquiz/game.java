@@ -14,6 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class game extends AppCompatActivity {
@@ -34,12 +35,53 @@ public class game extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         this.back = findViewById(R.id.back);
+
+        Intent intent= getIntent();
+        questionCounter = intent.getIntExtra("FIRST_INT", 0);
+        corAnswer = intent.getIntExtra("SECOND_INT", 0);
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
+
+        ImageView b = findViewById(R.id.img);
+        switch(questionCounter + 1)
+        {
+            case 1:
+                b.setImageResource(R.drawable.zurichwappen);
+                break;
+            case 2:
+                b.setImageResource(R.drawable.bern);
+                break;
+            case 3:
+                b.setImageResource(R.drawable.luzern);
+                break;
+            case 4:
+                b.setImageResource(R.drawable.uri);
+                break;
+            case 5:
+                b.setImageResource(R.drawable.schwyz);
+                break;
+            case 6:
+                b.setImageResource(R.drawable.nidwalden);
+                break;
+            case 7:
+                b.setImageResource(R.drawable.obwalden);
+                break;
+            case 8:
+                b.setImageResource(R.drawable.glarus);
+                break;
+            case 9:
+                b.setImageResource(R.drawable.zug);
+                break;
+            case 10:
+                b.setImageResource(R.drawable.freiburg);
+                break;
+
+        }
         this.img = findViewById(R.id.img);
         this.btnOne = findViewById(R.id.correct);
         this.btnTwo = findViewById(R.id.falseOne);
@@ -157,7 +199,7 @@ public class game extends AppCompatActivity {
 
     }
     public void nextQuestion(){
-        Intent intent = new Intent(this,gameP2.class);
+        Intent intent = new Intent(this,game.class);
         intent.putExtra("FIRST_INT", questionCounter);
         intent.putExtra("SECOND_INT",corAnswer);
         startActivity(intent);
